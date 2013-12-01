@@ -22,18 +22,19 @@ def file_gen2(name):
 #gen value       
 def worker_value():
     print "Worker1 start"
+    s = ''
     while True:
-        line = yield
-        line = line.split('"', 2)[1]
-        yield line
+        line = yield s
+        s = line.split('"', 2)[1]
 
 #gen key 
 def worker_key():
     print "Worker2 start"
+    s = ''
     while True:
-        line = yield
-        line = line[:-4].rsplit('>', 1)[1] or "non"
-        yield line 
+        line = yield s
+        s = line[:-4].rsplit('>', 1)[1] or "non"
+         
         
     
 def make_dict(bookmarks):
@@ -47,8 +48,20 @@ def make_dict(bookmarks):
 
 if __name__ == "__main__":
     start = time.time()
-    
     d = make_dict(FILE)
+    ## z = file_gen(FILE)
+    ## z = (line[:-4].rsplit('>', 1)[1] for  line in z)
+    ## v = dict()
+    ## for c in z:
+    ##     if c not in v:
+    ##         v[c] = 1
+    ##     else:
+    ##         v[c] += 1
+    ## d = dict()
+    ## for k, val in v.iteritems():
+    ##     d.setdefault(val,[]).append(k)
+    
+    #d = make_dict(FILE)
     
     
     
