@@ -2,6 +2,7 @@
 
 import time
 
+
 #my bookmarks from google chrome
 FILE = "bookmarks.html"
 
@@ -49,32 +50,8 @@ def make_dict(bookmarks):
 if __name__ == "__main__":
     start = time.time()
     d = make_dict(FILE)
-    ## z = file_gen(FILE)
-    ## z = (line[:-4].rsplit('>', 1)[1] for  line in z)
-    ## v = dict()
-    ## for c in z:
-    ##     if c not in v:
-    ##         v[c] = 1
-    ##     else:
-    ##         v[c] += 1
-    ## d = dict()
-    ## for k, val in v.iteritems():
-    ##     d.setdefault(val,[]).append(k)
-    
-    #d = make_dict(FILE)
-    
-    
-    
     print "EEEEEE", time.time()-start
-'''
-    s = time.time()
-    for line in open(FILE):
-        line = line.strip()
-        if line.startswith("<DT><A HREF="):
-                line = line[12:]
 
-                print line
-    print "FFFF", time.time() - s'''
         
         
 
