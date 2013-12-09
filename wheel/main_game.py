@@ -1,4 +1,4 @@
-
+import random 
 
 class Pockets(object):
     __slots__ = ('_number','_color')
@@ -34,7 +34,17 @@ class Wheel(object):
     __slots__ = ('_pockets', '_last_bet')
     def __init__(self):
         self._pockets = [Pockets(int(c)) for c in self.poc ]
-        self._last_bet = None 
+        self._last_bet = None
+
+    def __iter__(self):
+        bet = None
+        while True:
+            self.last_bet = bet
+            bet = random.choice(self.pockets)
+            yield bet
+    def make_bet(self):
+        g = iter(self)
+        return g.next()
 
     @property
     def pockets(self):
@@ -44,8 +54,13 @@ class Wheel(object):
     def last_bet(self):
         return self._last_bet
 
+    @last_bet.setter
+    def last_bet(self, bet):
+        self._last_bet = bet
+    
+
 class Player(object):
-    def play(self,wheel):
+    def play(self, wheel):
         pass
 
 
