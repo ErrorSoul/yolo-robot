@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Carousel</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" type="text/javascript"><!--mce:0--></script>
+  </head>
+  <body>
+    <h1>Carousel</h1>
+    <div id="carousel">
+      <ul>
+	<li><img src="images/1.jpg" alt="Fish" /></li>
+	<li><img src="images/2.jpg" alt="Elephant" /></li>
+	<li><img src="images/3.jpg" alt="Giraffe" /></li>
+	<li><img src="images/4.jpg" alt="Penguins" /></li>
+	<li><img src="images/5.jpg" alt="djecki" /></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+            var t = setInterval(function(){
+                $("#carousel ul").animate({marginLeft:-480},3000,function(){
+            $(this).find("li:last").after($(this).find("li:first"));
+            $(this).css({marginLeft:0});
+        })
+      }, 5000);
+      
+      });
+      
+    </script>
+    
+
+
+    <address>
+      <a href="mailto:errorsoul@error">errorsoul</a>
+    </address>
+  </body>
+</html>
